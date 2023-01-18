@@ -21,6 +21,6 @@ class CameraPiBot():
     def get_image(self):
         img = np.empty((self.resolution[1]*self.resolution[0]*3,), dtype = np.uint8)
         self.camera.capture(img, "bgr", use_video_port=True)
-        img = img.reshape((self.resolution[1], self.resoltuion[0], 3))
+        img = img.reshape((self.resolution[1], self.resolution[0], 3))
 
         return img
