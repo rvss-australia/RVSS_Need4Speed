@@ -20,4 +20,4 @@ if __name__ == "__main__":
     for i in range(100):
         image = camera.get_image()
     end = time.time()
-    print("frame rate is %f.3 fps" % (100/(end-start)))
+    print("frame rate is %.3f fps" % (100/(end-start)))
