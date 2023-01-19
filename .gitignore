@@ -1,2 +1,4 @@
 *.jpg
 *.pyc
+*.pt
+*.ipynb
