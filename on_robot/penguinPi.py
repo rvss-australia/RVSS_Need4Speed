@@ -21,7 +21,7 @@ class CameraPiBot():
     def get_image(self):
         img = np.empty((self.resolution[1]*self.resolution[0]*3,), dtype = np.uint8)
         self.camera.capture(img, "bgr", use_video_port=True)
-        img = img.reshape((self.resolution[1], self.resolution[0], 3)) #image will be upside down
-        img = cv2.rotate(img, cv2.ROTATE_180)
+        img = img.reshape((self.resolution[1], self.resolution[0], 3)) 
+        img = img[::-1, ::-1] #image will be upside down
 
         return img
