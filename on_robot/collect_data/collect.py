@@ -44,10 +44,10 @@ try:
                     angle = 0
                 if event.key == pygame.K_RIGHT:
                     print("right")
-                    angle += 0.05
+                    angle += 0.1
                 if event.key == pygame.K_LEFT:
                     print("left")
-                    angle -= 0.05
+                    angle -= 0.1
                 if event.key == pygame.K_SPACE:
                     print("stop")                    
                     ppi.set_velocity(0,0)
