@@ -12,12 +12,12 @@ if __name__ == "__main__":
     ppi.set_velocity(0,0)
 
     print("initialise camera")
-    camera = ppi.CameraPiBot()
-    print("capture image")
-    image = camera.get_image()
+    camera = ppi.VideoStreamWidget('http://localhost:8080/camera/get')
+    print("grab image")
+    image = camera.frame
     print("image size %d by %d" % (image.shape[0],image.shape[1]))
     start = time.time()
     for i in range(100):
-        image = camera.get_image()
+        image = camera.frame
     end = time.time()
     print("frame rate is %.3f fps" % (100/(end-start)))
