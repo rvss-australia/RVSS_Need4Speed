@@ -18,7 +18,7 @@ pygame.key.set_repeat(100) #holding a key sends continuous KEYDOWN events. Input
 # stop the robot 
 ppi.set_velocity(0,0)
 print("initialise camera")
-camera = ppi.CameraPiBot()
+camera = ppi.VideoStreamWidget('http://localhost:8080/camera/get')
 
 #countdown before beginning
 print("Get ready...")
@@ -54,7 +54,7 @@ try:
                     raise KeyboardInterrupt
         
         # get an image from the the robot
-        image = camera.get_image()
+        image = camera.frame
         
         angle = np.clip(angle, -0.5, 0.5)
         Kd = 30 #base wheel speeds, increase to go faster, decrease to go slower
