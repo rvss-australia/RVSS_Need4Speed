@@ -13,6 +13,7 @@ if __name__ == "__main__":
 
     print("initialise camera")
     camera = ppi.VideoStreamWidget('http://localhost:8080/camera/get')
+    time.sleep(2)
     print("grab image")
     image = camera.frame
     print("image size %d by %d" % (image.shape[0],image.shape[1]))
