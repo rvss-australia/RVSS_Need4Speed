@@ -1,6 +1,7 @@
 # Official Repository RVSS Workshop -- Need 4 Speed
 
-![logo](pics/RVSS-logo-col.med.jpg)
+<img src="pics/RVSS-logo-col.med.jpg" width="400" height="200">
+<img src="pics/FrontPage_Need4Speed.jpg" width="400" height="200">
 
 The material provided here was developed for the workshop hosted at the [Robotic Vision Summer School](https://www.rvss.org.au/).
 
