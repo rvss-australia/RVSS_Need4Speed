@@ -17,7 +17,9 @@ if __name__ == "__main__":
     print("grab image")
     image = camera.frame
     print("image size %d by %d" % (image.shape[0],image.shape[1]))
-    
-    while True:
-        image = camera.show_frame()
+    try:    
+        while True:
+            image = camera.show_frame()
+    except KeyboardInterrupt:
+        exit()
  
