@@ -1,3 +1,6 @@
+
+<img src="pics/FrontPage_Need4Speed.jpg" width="1000" height="500">
+
 ## Your task is to train a robot to drive along a 'road'.
 
 ### In this year's workshop  you will deploy a deep neural network on a mobile robot. You will go through all the stages of this process: data collection and labelling, network architecture design and implementation, training and testing, deployment on the robot and task execution. 
