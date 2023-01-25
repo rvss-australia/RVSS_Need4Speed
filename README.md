@@ -14,4 +14,4 @@ The material provided here was developed for the workshop hosted at the [Robotic
   7. [Support Material](./SupportingMaterial.md)
 
 ## Acknowledgement
-Thanks to Dimity Miller, Tobias Fischer, Feras Dayoub, and Serena Mou for the design of the workshop and the included code.
+Thanks to Dimity Miller, Tobias Fischer, Feras Dayoub, and Serena Mou for the design of the workshop and the included code (including previous iterations of the workshop).
