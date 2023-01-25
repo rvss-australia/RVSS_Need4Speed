@@ -5,4 +5,4 @@
 The material provided here was developed for the workshop hosted at the [Robotic Vision Summer School](https://www.rvss.org.au/).
 
 ---
-Please see this [separate README](./README_Workshop.md).
+Please see this [separate README](./Preparation.md).
