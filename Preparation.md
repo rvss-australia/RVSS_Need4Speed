@@ -18,6 +18,6 @@ Conda is also an environment manager (like `virtualenv`). Therefore, if an envir
 - Alternatively, create a new environment with all required packages: `mamba create -n rvss numpy scipy pytorch scikit-learn ipython scikit-image matplotlib tqdm roboticstoolbox-python git ipykernel mediapy py-opencv seaborn gym jupyter spatialmath-python machinevision-toolbox-python ipywidgets plotly torchvision conda-pack tensorboardx`.
 
 ## Working with the environment:
-- Activating the environment you just created: `conda activate rvss2019`
-- Deactivating: `conda deactivate rvss2019`
+- Activating the environment you just created: `conda activate rvss`
+- Deactivating: `conda deactivate rvss`
 - Deleting an environment: `conda remove --name FAILED_ENVIRONMENT --all`
