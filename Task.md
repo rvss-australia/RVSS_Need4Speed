@@ -1,11 +1,12 @@
 
 <img src="pics/FrontPage_Need4Speed.jpg" width="1000" height="500">
 
-## Your task is to create a delivery robot that will revolutionize the delivery process across Australia! Driving between cities and rural environments, you must create a robot that can safely and quickly navigate Australian roads.
+## Your task: A robot to revolutionize the delivery process across Australia
 
-### To achieve this, you will deploy a deep neural network on a mobile robot. You will go through all the stages of this process: data collection and labelling, network architecture design and implementation, training and testing, and deployment on the robot. 
+### Driving between cities and rural environments, you must create a robot that can safely and quickly navigate Australian roads. 
 
-Given an RGB image from the robot's camera, you will train a deep neural network to produce a steering command that safely drives the robot along the road. Performance will be measured by how **quickly and accurately** your robot completes the test track. 
+
+To achieve this, you will deploy a deep neural network on a mobile robot. You will go through all the stages of this process: data collection and labelling, network architecture design and implementation, training and testing, and deployment on the robot. Given an RGB image from the robot's camera, you will train a deep neural network to produce a steering command that safely drives the robot along the road. 
 
 ## Choose one of the following challenges:
 1. *The well-trodden path*: Your robot will only drive on 'suburban' roads, and will not encounter any unexpected obstacles. While this path may be less challenging, it's also longer -- you will need to complete 2 laps before arriving at your destination.
