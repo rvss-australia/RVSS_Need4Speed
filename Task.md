@@ -1,9 +1,9 @@
 
 <img src="pics/FrontPage_Need4Speed.jpg" width="1000" height="500">
 
-## Your task is to train a robot to drive along a 'road'.
+## Your task is to create a delivery robot that will revolutionize the delivery process across Australia! Driving between cities and rural environments, you must create a robot that can safely and quickly navigate Australian roads.
 
-### In this year's workshop  you will deploy a deep neural network on a mobile robot. You will go through all the stages of this process: data collection and labelling, network architecture design and implementation, training and testing, and deployment on the robot. 
+### To achieve this, you will deploy a deep neural network on a mobile robot. You will go through all the stages of this process: data collection and labelling, network architecture design and implementation, training and testing, and deployment on the robot. 
 
 Given an RGB image from the robot's camera, you will train a deep neural network to produce a steering command that safely drives the robot along the road. Performance will be measured by how **quickly and accurately** your robot completes the test track. 
 
