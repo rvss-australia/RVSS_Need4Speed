@@ -15,9 +15,16 @@ Conda is also an environment manager (like `virtualenv`). Therefore, if an envir
 
 # Guide for setting up an RVSS conda environment
 - To create an environment with all required packages, we recommend to download the pre-created environment files from [here](https://cloudstor.aarnet.edu.au/plus/s/lR0gyZzyf5bnAMT). You can then extract them to your `~/mambaforge/envs` folder.
-- Alternatively, create a new environment with all required packages: `mamba create -n rvss numpy scipy pytorch scikit-learn ipython scikit-image matplotlib tqdm roboticstoolbox-python git ipykernel mediapy py-opencv seaborn gym jupyter spatialmath-python machinevision-toolbox-python ipywidgets plotly torchvision conda-pack tensorboardx`.
+- Alternatively, create a new environment with all required packages: `mamba create -n rvss numpy scipy pytorch scikit-learn ipython scikit-image matplotlib tqdm roboticstoolbox-python git ipykernel mediapy py-opencv seaborn gym jupyter spatialmath-python machinevision-toolbox-python ipywidgets plotly torchvision conda-pack tensorboardx pygame click`.
 
 ## Working with the environment:
 - Activating the environment you just created: `conda activate rvss`
 - Deactivating: `conda deactivate rvss`
 - Deleting an environment: `conda remove --name FAILED_ENVIRONMENT --all`
+
+# Other software needed for the workshop
+
+We will use SSH to access the robot via your laptop. 
+- On Linux, you do not need any additional software.
+- On Windows, please install Xming and Xming-fonts from [here](https://cloudstor.aarnet.edu.au/plus/s/lR0gyZzyf5bnAMT) or from https://sourceforge.net/projects/xming/
+- On MacOs, please install XQuartz from [here](https://cloudstor.aarnet.edu.au/plus/s/lR0gyZzyf5bnAMT) or https://www.xquartz.org
