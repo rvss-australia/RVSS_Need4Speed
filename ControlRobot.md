@@ -14,6 +14,8 @@ This will check that the camera can take an image (validate by looking for reaso
 
 If your motor doesn't spin or no image shape prints, let one of the workshop organisers know as your robot may be faulty.
 
+**Note: if you want to get some initial insight into how control the robot camera and motors, read through this script to see how it works.**
+
 #### How to turn off the robot:
 1. In the terminal that is connected to the robot, type 'sudo halt'.
 2. On the front of the robot, there is a little green light, next to a red light. After you type in 'sudo halt', wait for the message 'Turn Raspberry Pi off safely' **AND** for this green light to be off. Note: after typing 'sudo halt', the LED will flash, then turn solid, then finally turn off after this this pattern. It is now safe to turn off the robot with the side switch.
