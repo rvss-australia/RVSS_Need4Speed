@@ -1,3 +1,7 @@
+## Clone the Repo to Your Machine
+
+``` git clone https://github.com/dimitymiller/RVSS_Need4Speed.git```
+
 ## Design Your Network
 In the Github repo, you will find an example of a possible network structure at RVSS2019-WS/on_laptop/steer_net/steerNet.py
 
