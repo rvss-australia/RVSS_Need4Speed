@@ -3,7 +3,7 @@
 ``` git clone https://github.com/dimitymiller/RVSS_Need4Speed.git```
 
 ## Copy the training data to your laptop
-Store the training data in the following folder: RVSS2019-WS/on_laptop/data/
+Store the training data in the following folder: RVSS_Need4Speed/on_laptop/data/
 
 You can copy the training data by executing the following command from the data folder on your laptop:
 
