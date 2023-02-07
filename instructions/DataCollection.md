@@ -2,9 +2,9 @@ There is a script on the robot that can be used to collect and label data. This 
 
 At every time step, the robot takes a photo and saves the steering angle of the robot at that time. Be aware: this means the training data for your network is controlled by how well you can drive the robot!
 
-Find it at RVSS2019-WS/on_robot/collect_data/collect.py.
+Find it at RVSS_Need4Speed/on_robot/collect_data/collect.py.
 
-``` python  RVSS2019-WS/on_robot/collect_data/collect.py```
+``` python ~/RVSS_Need4Speed/on_robot/collect_data/collect.py```
 
 A little window will pop up, and if this is in focus, you can use the following commands:
 - Tap left arrow key: steer a little more left
