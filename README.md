@@ -5,12 +5,12 @@
 The material provided here was developed for the workshop hosted at the [Robotic Vision Summer School](https://www.rvss.org.au/).
 
 ## Table of Contents
-  1. [Setup your Laptop](./Preparation.md)
-  2. [Your Task](./Task.md)
-  3. [Connect to the Robot](./ControlRobot.md)
-  4. [Data Collection](./DataCollection.md)
-  5. [Build and Train a Network](./NetworkTraining.md)
-  6. [Deployment Time](./NetworkDeployed.md)
+  1. [Setup your Laptop](instructions/Preparation.md)
+  2. [Your Task](instructions/Task.md)
+  3. [Connect to the Robot](instructions/ControlRobot.md)
+  4. [Data Collection](instructions/DataCollection.md)
+  5. [Build and Train a Network](instructions/NetworkTraining.md)
+  6. [Deployment Time](instructions/NetworkDeployed.md)
 
 ## Acknowledgement
 Thanks to Dimity Miller, Tobias Fischer, Feras Dayoub, and Serena Mou for the design of the workshop and the included code (including previous iterations of the workshop).
