@@ -2,30 +2,68 @@
 
 ``` git clone https://github.com/dimitymiller/RVSS_Need4Speed.git```
 
-## Design Your Network
-In the Github repo, you will find an example of a possible network structure at RVSS2019-WS/on_laptop/steer_net/steerNet.py
-
-This file contains the SteerNet class, which details an example _not very good_ network architecture. Read through the network structure: it uses convolutional layers, rectified linear units, max pooling layers and fully connected layers. 
-
-**Regression or Classification? You pick!**
-
-The example network is a regression network, where a single output is produced - see line 16: ```self.fc3 = nn.Linear(10,1)```, there is only 1 output from the final layer. You could follow this approach and train the network to produce the steering direction, or you could adapt the network to be a classification task, where it gives more than one output (as an example, your network could classify between three classes: 'left', 'right' or 'straight' - this would involve changing line 16: ```self.fc3 = nn.Linear(10, 3)``` to allow for 3 outputs from the final layer).
-
-## Train Your Network
-### Copy the training data to your laptop
+## Copy the training data to your laptop
 Store the training data in the following folder: RVSS2019-WS/on_laptop/data/
 
 You can copy the training data by executing the following command from the data folder on your laptop:
 
 ``` scp -r pi@192.168.50.5:~/RVSS_Need4Speed/on_robot/collect_data/data/* . ```
 
-### Training
-We have not provided an example training script for you, you will need to create this on your own! We recommend looking at pytorch tutorials for training classification or regression networks (depending on what you have chosen when you designed your network). You can find some example tutorials saved as pdf's on the documentation page of this website. 
+We have created a custom dataset class for you, to make it easier to load in the images and use them with the pytorch DataLoader. This custom dataset class, along with a test() function that shows how to use it, is stored in RVSS_Need4Speed/on_laptop/steer_net/steerDS.py
 
-We have created a custom dataset class for you, to make it easier to load in the images and use them with the pytorch DataLoader. This custom dataset class, along with a test() function that shows how to use it, is stored in RVSS2019-WS/on_laptop/steer_net/steerDS.py
+```python ~/RVSS_Need4Speed/on_laptop/steer_net/steerDS.py```
 
-Once your network has finished training, make sure to save the network weights! For a network named steerNet, you can use the following command to do this:
+This should print the number of images in the dataset, and print an image shape and matching ground-truth steering angle label.
 
-``` torch.save(steerNet.state_dict(), "steerNet.pt") ```
+## Design and Train Your Network
+### Data curation
+1. _Collating Training, Validation and Testing Data_
+
+
+You should try to have, at the very least, a distinct training and testing dataset. You may choose to create sub-folders in the data folder to place images into these categories. This will allow you to get a sense of the performance of your network after training -- whether it has overfit to the training data, or whether it can generalise to the test data.
+
+2. _Image augmentation and transformations_
+
+
+What is a reasonable input image size? Does it make sense to use the entire image, or should you use a crop from the image? Are there any clever transformations you can do to your existing dataset to augment it and create more images? HINT: if you have an image where the robot was steering left, if you mirror this image, can you infer what the new steering image would be?
+
+To answer some of these questions, it may be helpful to visually inspect the data/
+
+### Design and train a network
+All training will take place on your personal laptops. We would recommend following this [pytorch tutorial](https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html) for building and training your network for the first time. Sections 2, 3, 4, and 5 should be particularly helpful.
+
+1. _Design a network_
+
+See section 2 off this [pytorch tutorial](https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html). This is a good starting point that only needs minor modifications to function fairly well. 
+Consider:
+Do you want a classification network (e.g. predict 'left', 'right', or 'straight') or a regression network (predict the exact steering angle)? For a classification network, the final layer should have the same size output as the number of classes you will be sorting the data into. For a regression network, the final layer should have a single output. 
+
+Note:
+The size of _self.fc1_ will change depending on the input image size you use -- be prepared to adapt this.
+
+2. _Train your network_
+
+See section 3-5 off this [pytorch tutorial](https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html). 
+
+Notes:
+- you will need to use a different loss if you are designing a regression network. [MSE Loss](https://pytorch.org/docs/stable/generated/torch.nn.MSELoss.html) may be a good starting point.
+- if you have designed a classification network, you will need to adapt steerDS.py to return a class label rather than a raw steering angle
+
+3. _Check for reasonable performance on your test dataset_
+
+See section 5 off this [pytorch tutorial](https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html). 
+
+If your performance is poor, consider the following:
+- during training, did you see 'healthy' loss behaviour? Do you need to experiment with different learning rates?
+- do you have enough training data?
+- do you have balanced training data? e.g. if 80% of your data is labelled as 'straight', your network may have learnt to always go 'straight'.
+- do you need to try cropping input images, or down-sizing input images?
+
+**If you are really stuck, come chat to one of the workshop organisers.**
+
+4. _Saving the network weights_
+Once your network has finished training and you are satisfied with the performance on the test data, make sure to save the weights! For a network named steerNet, you can use the following command to do this:
+
+``` torch.save(net.state_dict(), "steerNet.pt") ```
 
 Now you can finally deploy your network on the robot and test the performance!
