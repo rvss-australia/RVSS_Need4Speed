@@ -6,7 +6,7 @@ You can copy the network weights to the robot by executing the following command
 You will also need to copy any files that contain the network definition to the robot in a similar manner.
 
 ### Create a deployment file.
-We have copied the script for collecting data to a deployment script in ```/RVSS_Need4Speed/on_robot/deploy/deploy.py```.
+We have copied the script for collecting data to a deployment script in ```~/RVSS_Need4Speed/on_robot/deploy/deploy.py```.
 
 You will need to adapt this to use your network (loaded with your trained weights) to predict how the robot should move, and send this as a command to the motors. 
 
