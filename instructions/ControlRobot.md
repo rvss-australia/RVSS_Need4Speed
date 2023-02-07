@@ -6,7 +6,7 @@
 5. When prompted, enter password: PenguinPi 
 
 #### Check the connection!
-In the terminal where you have SSH'ed to the robot, navigate to ~/RVSS2019-WS/on_robot/ folder and get ready to run test_camera_motors.py
+In the terminal where you have SSH'ed to the robot, navigate to ~/RVSS_Need4Speed/on_robot/ folder and get ready to run test_camera_motors.py
 
 This will check that the camera can take an image (validate by looking for reasonable, non-zero image width and height), and will turn on each motor, one at a time. Make sure you're holding your robot so it doesn't drive off a table. 
 
