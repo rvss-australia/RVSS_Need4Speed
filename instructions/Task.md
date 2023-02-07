@@ -1,5 +1,5 @@
 
-<img src="pics/FrontPage_Need4Speed.jpg" width="1000" height="500">
+<img src="../pics/FrontPage_Need4Speed.jpg" width="1000" height="500">
 
 ## Your task: An autonomous delivery robot!
 
