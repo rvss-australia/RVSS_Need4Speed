@@ -15,9 +15,32 @@ To achieve this, you will deploy a deep neural network on a mobile robot. You wi
 **Scoring Rules:**
 Your delivery time will be the ultimate predictor of performance! It will be calculated as:
 
-     Score = lap penalty x (Driving time + other penalties)
+     Score = lap penalty x (Driving time + other penalties - rewards)
      
 Penalties include:
 - Popped tyre (only relevant for the well-trodden path and the scenic route): if your entire tyre leaves the road surface, you blow the tyre! It will add **+3 seconds** to your time to change it.
 - Bogged (relevant for all challenges): if your entire robot leaves the road surface, your robot gets bogged and you'll have to help it get back on track. You can place your robot back on the road where it left, but it will add **+7 seconds** to your time.
 - Roadkill (only relevant for the off-road experience): if you hit any wildlife or road signs, your robot will have to assess itself for damage and report the incident to the road-cleanup crew. **+12 seconds** will be added to your time.
+
+Rewards include:
+- City's Safest Driver: You didn't get any penalties! Your robot is the cities safest driver. **-3 seconds** will be removed from your time.
+
+## On the Day
+You will not be able to enter the Workshop room tomorrow morning until the challenge commences. 
+Teams will compete in the following order:
+1. Surfing Penguins
+2. Undefined
+3. YAIT
+4. RVBot
+5. Team ANU
+6. Leo
+7. CDRCA
+8. Mighty QUacks
+9. Team Excess
+10. Chicken Joe
+
+Each team has a 5 minute slot, where you will have one attempt and your time from that attempt is your result. The top two teams will progress to the finals.
+
+**Finals**
+
+The top two teams will face-off in the finals! Best time wins.
