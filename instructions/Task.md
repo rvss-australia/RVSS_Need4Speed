@@ -20,4 +20,4 @@ Your delivery time will be the ultimate predictor of performance! It will be cal
 Penalties include:
 - Popped tyre (only relevant for the well-trodden path and the scenic route): if your entire tyre leaves the road surface, you blow the tyre! It will add **+3 seconds** to your time to change it.
 - Bogged (relevant for all challenges): if your entire robot leaves the road surface, your robot gets bogged and you'll have to help it get back on track. You can place your robot back on the road where it left, but it will add **+7 seconds** to your time.
-- Roadkill (only relevant for the off-road experience): if you hit any wildlife or road signs, your robot will have to assess itself for damage and report the incident to the road-cleanup crew. **+15 seconds** will be added to your time.
+- Roadkill (only relevant for the off-road experience): if you hit any wildlife or road signs, your robot will have to assess itself for damage and report the incident to the road-cleanup crew. **+12 seconds** will be added to your time.
