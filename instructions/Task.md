@@ -29,7 +29,7 @@ Rewards include:
 You will not be able to enter the Workshop room tomorrow morning until the challenge commences. 
 Teams will compete in the following order:
 1. Surfing Penguins
-2. Undefined
+2. Undefined Behaviour
 3. YAIT
 4. RVBot
 5. Team ANU
