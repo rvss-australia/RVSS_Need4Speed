@@ -25,6 +25,6 @@ Conda is also an environment manager (like `virtualenv`). Therefore, if an envir
 # Other software needed for the workshop
 
 We will use SSH to access the robot via your laptop. 
-- On Linux, you do not need any additional software.
+- On Linux, please make sure you have `sudo apt install libgl1` (this is typically installed, but missing e.g. in the Windows Subsystem for Linux WSL).
 - On Windows, please install Xming and Xming-fonts from [here](https://cloudstor.aarnet.edu.au/plus/s/lR0gyZzyf5bnAMT) or from https://sourceforge.net/projects/xming/
 - On MacOs, please install XQuartz from [here](https://cloudstor.aarnet.edu.au/plus/s/lR0gyZzyf5bnAMT) or https://www.xquartz.org
