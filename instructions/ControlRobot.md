@@ -16,7 +16,7 @@ If your motor doesn't spin or no image shape prints, let one of the workshop org
 2. On the front of the robot, there is a little green light, next to a red light. After you press the 'SDN' button, wait for the message 'Turn Raspberry Pi off safely' to show on the OLED screen **AND** for this green light to be off. Note: after pressing the button, the LED will flash, then turn solid, then finally turn off after this pattern. It is now safe to turn off the robot with the side switch.
 
 #### FAQ
-## I want to ssh onto the robot!
+**I want to ssh onto the robot!**
 You should not need to do this at any point. Please check with one of the workshop organisers before changing code directly on the PiBot. If they give you the go ahead, you can:
 1. Check the robot's OLED screen to see its wlan address (xxx.xxx.xx.x).
 2. In a terminal window, SSH to the robot with the command below. Note: the -X command is important, please make sure you use this!
