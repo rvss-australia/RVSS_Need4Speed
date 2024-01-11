@@ -1,33 +1,24 @@
-## Clone the Repo to Your Machine
+We have created a custom dataset class for you, to make it easier to load in the images and use them with the pytorch DataLoader. This custom dataset class, along with a test() function that shows how to use it, is stored in RVSS_Need4Speed/steer_net/steerDS.py
 
-``` git clone https://github.com/dimitymiller/RVSS_Need4Speed.git```
+Navigate to the workshop repository (RVSS_Need4Speed) and run:
 
-## Copy the training data to your laptop
-Store the training data in the following folder: RVSS_Need4Speed/on_laptop/data/
+```python steer_net/steerDS.py```
 
-You can copy the training data by executing the following command from the data folder on your laptop:
-
-``` scp -r pi@192.168.50.5:~/RVSS_Need4Speed/on_robot/collect_data/data/* . ```
-
-We have created a custom dataset class for you, to make it easier to load in the images and use them with the pytorch DataLoader. This custom dataset class, along with a test() function that shows how to use it, is stored in RVSS_Need4Speed/on_laptop/steer_net/steerDS.py
-
-```python ~/RVSS_Need4Speed/on_laptop/steer_net/steerDS.py```
-
-This should print the number of images in the dataset, and print an image shape and matching ground-truth steering angle label.
+This should print the number of images in the dataset, and print an example image shape and matching ground-truth steering angle label.
 
 ## Design and Train Your Network
 ### Data curation
 1. _Collating Training, Validation and Testing Data_
 
 
-You should try to have, at the very least, a distinct training and testing dataset. You may choose to create sub-folders in the data folder to place images into these categories. This will allow you to get a sense of the performance of your network after training -- whether it has overfit to the training data, or whether it can generalise to the test data.
+You should have, at the very least, a distinct training and testing dataset. This will allow you to get a sense of the performance of your network after training -- whether it has overfit to the training data, or whether it can generalise to the test data. You may choose to create sub-folders in the data folder to place images into these categories. 
 
 2. _Image augmentation and transformations_
 
 
 What is a reasonable input image size? Does it make sense to use the entire image, or should you use a crop from the image? Are there any clever transformations you can do to your existing dataset to augment it and create more images? HINT: if you have an image where the robot was steering left, if you mirror this image, can you infer what the new steering image would be?
 
-To answer some of these questions, it may be helpful to visually inspect the data/
+To answer some of these questions, it may be helpful to visually inspect the data.
 
 ### Design and train a network
 All training will take place on your personal laptops. We would recommend following this [pytorch tutorial](https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html) for building and training your network for the first time. Sections 2, 3, 4, and 5 should be particularly helpful.
