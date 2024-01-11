@@ -2,18 +2,20 @@
 import time
 import click
 import math
-import sys
-sys.path.append("..")
 import cv2
+import os
+import sys
 import numpy as np
-import penguinPi as ppi
 import torch
 import torch.nn as nn
 
+script_path = os.path.dirname(os.path.realpath(__file__))
+sys.path.append(os.path.abspath(os.path.join(script_path, "../PenguinPi-robot/software/python/client/")))
+from pibot_client import PiBot
+
+bot = PiBot('192.168.50.5')
 # stop the robot 
-ppi.set_velocity(0,0)
-print("initialise camera")
-camera = ppi.VideoStreamWidget('http://localhost:8080/camera/get')
+bot.setVelocity(0, 0)
 
 #INITIALISE NETWORK HERE
 
@@ -34,7 +36,7 @@ try:
     angle = 0
     while True:
         # get an image from the the robot
-        image = camera.frame
+        img = bot.getImage()
 
         #TO DO: apply any image transformations
 
@@ -46,8 +48,8 @@ try:
         left  = int(Kd + Ka*angle)
         right = int(Kd - Ka*angle)
         
-        ppi.set_velocity(left,right) 
+        bot.setVelocity(left, right)
         
         
 except KeyboardInterrupt:    
-    ppi.set_velocity(0,0)
+    bot.setVelocity(0, 0)

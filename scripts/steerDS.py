@@ -4,7 +4,11 @@ from torchvision import transforms
 from torch.utils.data import Dataset, DataLoader
 import cv2
 from glob import glob
+import os
 from os import path
+
+script_path = os.path.dirname(os.path.realpath(__file__))
+
 
 class SteerDataSet(Dataset):
     
@@ -40,7 +44,7 @@ def test():
     [transforms.ToTensor(),
      transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
 
-    ds = SteerDataSet("~/RVSS_Need4Speed/on_laptop/data",".jpg",transform)
+    ds = SteerDataSet(os.path.join(script_path, '..', 'data'), '.jpg', transform)
 
     print("The dataset contains %d images " % len(ds))
 

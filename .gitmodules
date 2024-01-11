@@ -1,0 +1,3 @@
+[submodule "PenguinPi-robot"]
+	path = PenguinPi-robot
+	url = https://github.com/qcr/PenguinPi-robot.git
