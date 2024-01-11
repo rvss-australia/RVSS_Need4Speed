@@ -1,4 +1,4 @@
-We have created a custom dataset class for you, to make it easier to load in the images and use them with the pytorch DataLoader. This custom dataset class, along with a test() function that shows how to use it, is stored in RVSS_Need4Speed/steer_net/steerDS.py
+We have created a custom dataset class for you, to make it easier to load in the images and use them with the pytorch DataLoader. This custom dataset class, along with a test() function that shows how to use it.
 
 Navigate to the workshop repository (RVSS_Need4Speed) and run:
 
