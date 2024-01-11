@@ -26,20 +26,9 @@ Rewards include:
 - City's Safest Driver: You didn't get any penalties! Your robot is the cities safest driver. **-3 seconds** will be removed from your time.
 
 ## On the Day
-You will not be able to enter the Workshop room tomorrow morning until the challenge commences. 
-Teams will compete in the following order:
-1. Surfing Penguins
-2. Undefined Behaviour
-3. YAIT
-4. RVBot
-5. Team ANU
-6. Leo
-7. CDRCA
-8. Mighty QUacks
-9. Team Excess
-10. Chicken Joe
+On the day, teams will take turns testing their robot on the **qualifier track**. The order will be randomly chosen and shared here on the morning of the challenge. 
 
-Each team has a 5 minute slot, where you will have one attempt and your time from that attempt is your result. The top two teams will progress to the finals.
+Each team has a 5 minute slot, where you will have one attempt and your time from that attempt is your result. The top three teams will progress to the finals and test on the **challenger track**.
 
 **Finals**
 
