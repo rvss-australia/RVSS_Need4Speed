@@ -14,17 +14,11 @@ Conda is also an environment manager (like `virtualenv`). Therefore, if an envir
 - If you are on Linux/MacOS, simply type `sh Mambaforge-*.sh` and follow the instructions. On Windows, double click `Mambaforge-Windows-x86_64.exe` and follow the instructions.
 
 # Guide for setting up an RVSS conda environment
-- To create an environment with all required packages, we recommend to download the pre-created environment files from [here](https://cloudstor.aarnet.edu.au/plus/s/lR0gyZzyf5bnAMT). You can then extract them to your `~/mambaforge/envs` folder.
-- Alternatively, create a new environment with all required packages: `mamba create -n rvss numpy scipy pytorch scikit-learn ipython scikit-image matplotlib tqdm roboticstoolbox-python git ipykernel mediapy py-opencv seaborn gym jupyter spatialmath-python machinevision-toolbox-python ipywidgets plotly torchvision conda-pack tensorboardx pygame click`.
+- To create an environment with all required packages, we recommend to download the pre-created environment files from [here](https://cloudstor.aarnet.edu.au/plus/s/lR0gyZzyf5bnAMT). ***TOBI WILL UPDATE*** You can then extract them to your `~/mambaforge/envs` folder.
+- Alternatively, create a new environment with all required packages: `mamba create -n rvss numpy scipy pytorch scikit-learn ipython scikit-image matplotlib tqdm roboticstoolbox-python git ipykernel mediapy py-opencv seaborn gym jupyter spatialmath-python machinevision-toolbox-python ipywidgets plotly torchvision conda-pack tensorboardx pynput click`.
 
 ## Working with the environment:
 - Activating the environment you just created: `conda activate rvss`
 - Deactivating: `conda deactivate rvss`
 - Deleting an environment: `conda remove --name FAILED_ENVIRONMENT --all`
 
-# Other software needed for the workshop
-
-We will use SSH to access the robot via your laptop. 
-- On Linux, please make sure you have `sudo apt install libgl1` (this is typically installed, but missing e.g. in the Windows Subsystem for Linux WSL).
-- On Windows, please install Xming and Xming-fonts from [here](https://cloudstor.aarnet.edu.au/plus/s/lR0gyZzyf5bnAMT) or from https://sourceforge.net/projects/xming/
-- On MacOs, please install XQuartz from [here](https://cloudstor.aarnet.edu.au/plus/s/lR0gyZzyf5bnAMT) or https://www.xquartz.org
