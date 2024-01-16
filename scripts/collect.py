@@ -14,6 +14,7 @@ from pibot_client import PiBot
 parser = argparse.ArgumentParser(description='PiBot client')
 parser.add_argument('--ip', type=str, default='localhost', help='IP address of PiBot')
 parser.add_argument('--im_num', type = int, default = 0)
+parser.add_argument('--folder', type = str, default = 'train')
 args = parser.parse_args()
 
 bot = PiBot(ip=args.ip)
@@ -79,7 +80,7 @@ try:
         
         bot.setVelocity(left, right)
 
-        cv2.imwrite(script_path+"/../data/"+str(im_number).zfill(6)+'%.2f'%angle+".jpg", img) 
+        cv2.imwrite(script_path+"/../data/"+args.folder+"/"+str(im_number).zfill(6)+'%.2f'%angle+".jpg", img) 
         im_number += 1
 
         time.sleep(0.1)  # Small delay to reduce CPU usage
