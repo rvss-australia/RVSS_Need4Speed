@@ -8,7 +8,7 @@
 To achieve this, you will deploy a deep neural network on a mobile robot. You will go through all the stages of this process: data collection and labelling, network architecture design and implementation, training and testing, and deployment on the robot. Given an RGB image from the robot's camera, you will train a deep neural network to produce a steering command that safely drives the robot along the road. 
 
 ## Your challenge:
-On the day, teams will take turns testing their robot on the **qualifier track**. Each team has a 5 minute slot, where you will have one attempt and your time from that attempt is your result. The top three teams will progress to the finals and test on the **finalist track**. You will not have access to either track before the challenge. You can expect the following:
+On the day, teams will take turns testing their robot on the **qualifier track**. Each team has a 3 minute slot, where you will have one attempt and your time from that attempt is your result. The top three teams will progress to the finals and test on the **finalist track**. You will not have access to either track before the challenge. You can expect the following:
 
 1. Each track will have a single **stop sign**. The stop sign will be placed in the middle of the track (picture below). The stop sign can be encountered on both a rural or urban track. When your robot is within 10cm of the stop sign it must come to a complete stop, before continuing to drive. 
 2. The **qualifier track** can contain any of the driving track tiles provided. It will not have consecutive (in a row) 90-degree corners. It will have a single stop sign. 
