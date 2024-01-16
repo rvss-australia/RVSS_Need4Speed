@@ -13,6 +13,7 @@ from pibot_client import PiBot
 
 parser = argparse.ArgumentParser(description='PiBot client')
 parser.add_argument('--ip', type=str, default='localhost', help='IP address of PiBot')
+parser.add_argument('--im_num', type = int, default = 0)
 args = parser.parse_args()
 
 bot = PiBot(ip=args.ip)
@@ -34,7 +35,7 @@ print("GO!")
 
 # Initialize variables
 angle = 0
-im_number = 0
+im_number = args.im_num
 continue_running = True
 
 def on_press(key):
