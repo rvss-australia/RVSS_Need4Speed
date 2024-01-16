@@ -19,6 +19,7 @@ You can end the script by typing `ctrl+c` into the terminal.
 
 ## FAQ
 **My PenguinPi-robot folder is empy?**
+
 This can occur is the sub-module (PenguinPi-robot) is not correctly initialised. You can do this in two ways:
 1. ```git clone --recurse-submodules https://github.com/rvss-australia/RVSS_Need4Speed.git```
 
