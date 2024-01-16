@@ -23,9 +23,8 @@ This can occur is the sub-module (PenguinPi-robot) is not correctly initialised.
 1. ```git clone --recurse-submodules https://github.com/rvss-australia/RVSS_Need4Speed.git```
 
 or if you have already cloned the repo without the `--recurse-submodules` argument:
-2. ```git submodule init```
 
-```git submodule update```
+2. ```git submodule init``` followed by ```git submodule update```
 
 **I want to ssh onto the robot!**
 You should not need to do this at any point. Please check with one of the workshop organisers before changing code directly on the PiBot. If they give you the go ahead, you can:
