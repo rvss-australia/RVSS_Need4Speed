@@ -16,7 +16,7 @@ On the day, teams will take turns testing their robot on the **qualifier track**
 4. You will complete a single lap of each track.
 
 **Scoring Rules:**
-Your final score will be based on your delivery time (time to complete a lap), as well as any penalties or rewards you ear. It will be calculated as:
+Your final score will be based on your delivery time (time to complete a lap), as well as any penalties or rewards you earn. It will be calculated as:
 
      Score = Delivery time + penalties - rewards
      
