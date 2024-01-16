@@ -27,12 +27,8 @@ or if you have already cloned the repo without the `--recurse-submodules` argume
 
 2. ```git submodule init``` followed by ```git submodule update```
 
-**I want to ssh onto the robot!**
-You should not need to do this at any point. Please check with one of the workshop organisers before changing code directly on the PiBot. If they give you the go ahead, you can:
-1. Check the robot's OLED screen to see its wlan address (xxx.xxx.xx.x).
-2. In a terminal window, SSH to the robot with the command below. Note: the -X command is important, please make sure you use this!
-```ssh -X pi@xxx.xxx.xx.x```
-3. When prompted, enter password: PenguinPi
+**I'm getting a "ModuleNotFound" error?**
+Check that you have activated your conda environment that contains the packages required for the workshop. Refer to the [preparation instructions](https://github.com/rvss-australia/RVSS_Need4Speed/blob/main/instructions/Preparation.md)
 
 **I want to ssh onto the robot!**
 You should not need to do this at any point. Please check with one of the workshop organisers before changing code directly on the PiBot. If they give you the go ahead, you can:
