@@ -1,14 +1,10 @@
 import numpy as np
 from glob import glob
 from torchvision import transforms
-from torch.utils.data import Dataset, DataLoader
+from torch.utils.data import Dataset
 import cv2
 from glob import glob
-import os
 from os import path
-
-script_path = os.path.dirname(os.path.realpath(__file__))
-
 
 class SteerDataSet(Dataset):
     
@@ -33,31 +29,7 @@ class SteerDataSet(Dataset):
         
         steering = f.split("/")[-1].split(self.img_ext)[0][6:]
         steering = np.float32(steering)        
-    
+       
         sample = {"image":img , "steering":steering}        
         
         return sample
-
-
-def test():
-    transform = transforms.Compose(
-    [transforms.ToTensor(),
-     transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
-
-    ds = SteerDataSet(os.path.join(script_path, '..', 'data'), '.jpg', transform)
-
-    print("The dataset contains %d images " % len(ds))
-
-    ds_dataloader = DataLoader(ds,batch_size=1,shuffle=True)
-    for S in ds_dataloader:
-        im = S["image"]    
-        y  = S["steering"]
-        
-        print(f'Input shape: {im.shape}')
-        print(f'Example output: {y}')
-        break
-
-
-
-if __name__ == "__main__":
-    test()
