@@ -55,10 +55,11 @@ def on_press(key):
             print("stop")
             bot.setVelocity(0, 0)
             continue_running = False
-            return False  # Stop listener
+            # return False  # Stop listener
 
     except Exception as e:
         print(f"An error occurred: {e}")
+        bot.setVelocity(0, 0)
 
 # Start the listener
 listener = keyboard.Listener(on_press=on_press)
@@ -70,8 +71,8 @@ try:
         img = bot.getImage()
         
         angle = np.clip(angle, -0.5, 0.5)
-        Kd = 30  # Base wheel speeds
-        Ka = 30  # Turn speed
+        Kd = 20  # Base wheel speeds
+        Ka = 20  # Turn speed
         left  = int(Kd + Ka*angle)
         right = int(Kd - Ka*angle)
         
@@ -82,11 +83,13 @@ try:
 
         time.sleep(0.1)  # Small delay to reduce CPU usage
 
+    # Clean up
+    bot.setVelocity(0, 0)
+    listener.stop()
+    print("Script ended")
+
+
 except KeyboardInterrupt:    
     bot.setVelocity(0, 0)
     listener.stop()
 
-# Clean up
-bot.setVelocity(0, 0)
-listener.join()
-print("Script ended")
