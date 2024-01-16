@@ -53,8 +53,8 @@ def test():
         im = S["image"]    
         y  = S["steering"]
         
-        print(im.shape)
-        print(y)
+        print(f'Input shape: {im.shape}')
+        print(f'Example output: {y}')
         break
 
 
