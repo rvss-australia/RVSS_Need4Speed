@@ -2,7 +2,8 @@
 
 # Clone the repository
 Before you attend the workshop, you will need a copy of this repository on your personal laptop. Clone the repository into your chosen folder on your personal laptop with this terminal command:
-`git clone https://github.com/rvss-australia/RVSS_Need4Speed.git`.
+
+`git clone --recurse-submodules https://github.com/rvss-australia/RVSS_Need4Speed.git`
 
 # Using Conda for package management
 In this workshop, we will use Conda. Conda is a package manager for Windows, Mac and Linux - it allows you to install packages similar to `apt`, `homebrew` and `vcpkg`. Conda not only supports Python packages, but also packages in C/C++, FORTRAN, and much more.
