@@ -17,6 +17,11 @@ parser.add_argument('--im_num', type = int, default = 0)
 parser.add_argument('--folder', type = str, default = 'train')
 args = parser.parse_args()
 
+if not os.path.exists(script_path+"/../data/"+args.folder):
+    data_path = script_path.replace('scripts', 'data')
+    print(f'Folder "{args.folder}" in path {data_path} does not exist. Please create it.')
+    exit()
+
 bot = PiBot(ip=args.ip)
 # stop the robot
 
