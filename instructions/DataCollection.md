@@ -1,4 +1,4 @@
-## Gathering the training data
+## Gathering the training and testing data
 
 To complete the task, you need to train a deep neural network to drive around the track. This will require data that contains an input (in this case an image), as well as an associated action (in this case a driving-related action).
 
@@ -9,7 +9,7 @@ We are providing you with a script that can be used to collect and label data by
 
 To run the script, navigate to the workshop repository and run:
 
-``` python scripts/collect.py --ip xxx.xxx.xx.x```
+``` python scripts/collect.py --ip xxx.xxx.xx.x --folder <folder_name>```
 
 **READ BEFORE RUNNING:**
 - You should create a sample driving track for your data collection. Ideally, this should contain a selection of the driving track tiles, and include a range of driving track shapes (i.e. not just a straight track with a single curve).
@@ -20,5 +20,6 @@ To run the script, navigate to the workshop repository and run:
   - tap right arrow key: steer a little more right
   - tap up or down arrow key: drive straight
   - tap space bar: stop moving and end script
+- The script will save images inside the "data/<folder_name>" folder. Initially, you should use "--folder train" to collect some data to train on. It's also important to collect a test dataset that you can use to check the performance of your neural network on unseen data. After you've collected some data in the "train" folder, consider making a "test" folder and collecting more data into this folder.
 - The script will save images as "<im_number><steering_angle>.jpg". `im_number` is by default initialised to 0 when you run the script -- this means that you can accidentally overwrite previous data that you've collected if you run the script several times. If you interrupt the script but want to restart it to collect more data, you can pass in an additional ``im_num`` argument to the script that will change the starting im_number variable so that you don't overwrite the data you have already collected! e.g. ```python scripts/collect.py --ip xxx.xxx.xx.x --im_num 100```
 - The _**more data and the more diverse data**_ you collect, the more robust and accurate your trained model should be. We managed to train the robot after collecting only 300 images, but feel free to get more than this! 

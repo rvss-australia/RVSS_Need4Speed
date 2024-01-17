@@ -13,7 +13,7 @@ transform = transforms.Compose(
 script_path = os.path.dirname(os.path.realpath(__file__))
 
 
-ds = SteerDataSet(os.path.join(script_path, '..', 'data'), '.jpg', transform)
+ds = SteerDataSet(os.path.join(script_path, '..', 'data', 'train'), '.jpg', transform)
 
 print("The dataset contains %d images " % len(ds))
 
