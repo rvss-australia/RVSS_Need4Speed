@@ -52,6 +52,9 @@ try:
         #TO DO: pass image through network get a prediction
 
         #TO DO: convert prediction into a meaningful steering angle
+
+        #TO DO: check for stop signs?
+        
         angle = 0
 
         Kd = 20 #base wheel speeds, increase to go faster, decrease to go slower
