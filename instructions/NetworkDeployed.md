@@ -3,7 +3,7 @@
 By now, you should have a trained neural network that can take an image and predict a steering action. Optionally, you should also have developed a function that allows you to identify stop signs on the road (if you want to avoid the stop sign penalty!). It's time to put these together to deploy your robot on the road!
 
 ### A deploy script to control your robot
-We have created a script that you can use to deploy your robot in ```scripts/deploy.py```. Read through this script and follow the instructions to complete your robot's deployment. 
+We have created a script that you can use to deploy your robot in ```scripts/deploy.py```. Read through this script and follow the instructions to complete your robot's deployment. You can press ```ctrl+c``` at any time while running this script to stop the robot.
 
 Things to consider:
 1. What transformations do you need to apply before providing the pi bot image to your network? For example, cropping, resizing or normalizing the image? Check what you used during training.
