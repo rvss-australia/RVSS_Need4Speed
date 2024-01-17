@@ -20,9 +20,8 @@ print("The dataset contains %d images " % len(ds))
 ds_dataloader = DataLoader(ds,batch_size=1,shuffle=True)
 all_y = []
 for S in ds_dataloader:
-    im = S["image"]    
-    y  = S["steering"]
-    
+    im, y = S    
+        
     all_y += y.tolist()
 
 print(f'Input shape: {im.shape}')
