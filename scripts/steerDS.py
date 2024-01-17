@@ -29,7 +29,5 @@ class SteerDataSet(Dataset):
         
         steering = f.split("/")[-1].split(self.img_ext)[0][6:]
         steering = np.float32(steering)        
-       
-        sample = {"image":img , "steering":steering}        
-        
-        return sample
+                      
+        return img, steering
