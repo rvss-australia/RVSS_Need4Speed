@@ -1,5 +1,5 @@
 ## Training a network to predict driving actions from images
-_Note: you may want to work together as a team on this section, or you may want to split up and have some of the team investigate the stop sign detection._
+_Note: you may want to work together as a team on this section, or you may want to split up and have some of the team investigate the [stop sign detection](https://github.com/rvss-australia/RVSS_Need4Speed/blob/main/instructions/StopSignDetection.md)._
 
 It's time to train your neural network! There are generally a number of important steps required here:
 1. Loading and preparing your train and test dataset
