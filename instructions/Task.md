@@ -10,7 +10,10 @@ To achieve this, you will deploy a deep neural network on a mobile robot. You wi
 ## Your challenge:
 On the day, teams will take turns testing their robot on the **qualifier track**. Each team has a 3 minute slot, where you will have one attempt and your time from that attempt is your result. The top three teams will progress to the finals and test on the **finalist track**. You will not have access to either track before the challenge. You can expect the following:
 
-1. Each track will have a single **stop sign**. The stop sign will be placed in the middle of the track (picture below). The stop sign can be encountered on both a rural or urban track. When your robot is within 10cm of the stop sign it must come to a complete stop, before continuing to drive. 
+1. Each track will have a single **stop sign**. The stop sign will be placed in the middle of the track (picture below). The stop sign can be encountered on both a rural or urban track. When your robot is within 10cm of the stop sign it must come to a complete stop, before continuing to drive.
+   
+<p align="center"><img src="../pics/sample_stop_sign.png" width="200" height="150"></p>
+   
 2. The **qualifier track** can contain any of the driving track tiles provided. It will not have consecutive (two or more in a row) 90-degree corners. It will have a single stop sign. 
 3. The **finalist track** can contain any of the driving track tiles provided, in any order or configuration. It can have multiple stop signs, though these will always be at least four driving track tiles apart.
 4. You will complete a single lap of each track.
