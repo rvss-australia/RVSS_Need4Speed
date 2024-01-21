@@ -1,6 +1,6 @@
 ## Creating a safe delivery robot
 
-To avoid any danger (and large _10 second_ penalties!), your robot needs to be able to detect stop signs so that it can stop driving before proceeding. There are a number of ways to do this, but often the simplest is the best. For this workshop, we recommend using simple colour thresholding and blob detection!
+To avoid any danger (and large _10 second_ penalties!), your robot needs to be able to detect stop signs so that it can stop driving before proceeding safely. There are a number of ways to do this, but often the simplest is the best. For this workshop, we recommend using simple colour thresholding and blob detection!
 
 <p align="center"><img src="../pics/sample_stop_sign.png" width="200" height="150"></p>
 
