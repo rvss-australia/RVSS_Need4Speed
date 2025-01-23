@@ -20,10 +20,8 @@ Conda is also an environment manager (like `virtualenv`). Therefore, if an envir
 - If you are on Linux/MacOS, simply type `sh Miniforge3-*.sh` and follow the instructions. On Windows, double click `Miniforge3-Windows-x86_64.exe` and follow the instructions.
 
 # Guide for setting up an RVSS conda environment
-- MacOS or Linux without GPU: Create a new environment called `rvss` with all required packages: `mamba create -n rvss numpy scipy pytorch scikit-learn ipython scikit-image matplotlib tqdm roboticstoolbox-python git ipykernel mediapy py-opencv seaborn gym jupyter spatialmath-python machinevision-toolbox-python ipywidgets plotly torchvision conda-pack tensorboardx pynput click -c conda-forge`.
-- Linux with GPU: Replace `pytorch` with `pytorch-gpu` above to enforce a GPU version of `pytorch` (this should happen automatically though).
-- Windows without GPU: `mamba create -n rvss numpy scipy pytorch cpuonly scikit-learn ipython scikit-image matplotlib tqdm roboticstoolbox-python git ipykernel mediapy py-opencv seaborn gym jupyter spatialmath-python machinevision-toolbox-python ipywidgets plotly torchvision conda-pack tensorboardx pynput click -c conda-forge -c pytorch`
-- Windows with GPU: `mamba create -n rvss numpy scipy 'pytorch=*=*cuda*' scikit-learn ipython scikit-image matplotlib tqdm roboticstoolbox-python git ipykernel mediapy py-opencv seaborn gym jupyter spatialmath-python machinevision-toolbox-python ipywidgets plotly torchvision conda-pack tensorboardx pynput click pytorch-cuda=11.8 cuda-version=11.8 -c conda-forge -c pytorch -c nvidia`
+- Linux/MacOS/Windows: Create a new environment called `rvss` with all required packages: `mamba create -n rvss numpy scipy pytorch scikit-learn ipython scikit-image matplotlib tqdm roboticstoolbox-python git ipykernel mediapy py-opencv seaborn gym jupyter spatialmath-python machinevision-toolbox-python ipywidgets plotly torchvision conda-pack tensorboardx pynput click -c conda-forge --override-channels`.
+- Linux/Windows with GPU (optional as this should happen automatically): Replace `pytorch` with `pytorch-gpu` above to enforce a GPU version of `pytorch`.
 
 ## Working with the environment:
 - Activating the environment you just created: `conda activate rvss`
