@@ -4,6 +4,7 @@ import os
 from torch.utils.data import DataLoader
 import numpy as np
 import torchvision
+import matplotlib.pyplot as plt
 
 from steerDS import SteerDataSet
 
@@ -32,7 +33,11 @@ for S in trainloader:
 
 print(f'Input shape: {im.shape}')
 print('Outputs and their counts:')
-print(np.unique(all_y, return_counts = True))
+all_lbls, all_counts = np.unique(all_y, return_counts = True)
+plt.bar(all_lbls, all_counts)
+plt.xlabel('Labels')
+plt.ylabel('Counts')
+plt.show()
 
 # show images
 imshow(torchvision.utils.make_grid(im))
