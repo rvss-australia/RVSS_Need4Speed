@@ -2,6 +2,7 @@
 
 Please follow each of the steps below before arriving at RVSS:
 - [Clone the repository](#clone-the-repository)
+- [Download the starter data](#download-the-starter-data)
 - [Use Conda for package management](#use-conda-for-package-management)
 - [Setup an RVSS conda environment](#setup-an-rvss-conda-environment)
 - [Download Visual Studio Code for code development](#download-visual-studio-code-for-code-development)
@@ -10,6 +11,11 @@ Please follow each of the steps below before arriving at RVSS:
 Before you attend the workshop, you will need a copy of this repository on your personal laptop. Clone the repository into your chosen folder on your personal laptop with this terminal command:
 
 `git clone --recurse-submodules https://github.com/rvss-australia/RVSS_Need4Speed.git`
+
+# Download the starter data
+Navigate to the [huggingface dataset](https://huggingface.co/datasets/dimitym/RVSS_Need4Speed_starter/tree/main) and download data.zip. Place this inside your cloned repository and extract the zip file.
+
+You should have a `data` folder that contains a `train_starter` and `val_starter` folder, containing 793 and 436 images respectively.
 
 # Use Conda for package management
 In this workshop, we will use Conda. Conda is a package manager for Windows, Mac and Linux - it allows you to install packages similar to `apt`, `homebrew` and `vcpkg`. Conda not only supports Python packages, but also packages in C/C++, FORTRAN, and much more.
