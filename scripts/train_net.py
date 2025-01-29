@@ -42,6 +42,6 @@ plt.show()
 
 example_ims, example_lbls = next(iter(trainloader)))
 # show images
-imshow(torchvision.utils.make_grid(example_ims)
+imshow(torchvision.utils.make_grid(example_ims))
 # print labels
 print(' '.join(f'{example_lbls[j]}' for j in range(len(example_lbls))))
