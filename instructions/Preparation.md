@@ -22,7 +22,7 @@ Conda is also an environment manager (like `virtualenv`). Therefore, if an envir
 # Guide for setting up an RVSS conda environment
 - Linux/MacOS/Windows: Create a new environment called `rvss` with all required packages: `mamba create -n rvss numpy scipy pytorch scikit-learn ipython scikit-image matplotlib tqdm roboticstoolbox-python git ipykernel mediapy py-opencv seaborn gym jupyter spatialmath-python machinevision-toolbox-python ipywidgets plotly torchvision conda-pack tensorboardx pynput click -c conda-forge --override-channels`.
 - Linux/Windows with GPU (optional as this should happen automatically): Replace `pytorch` with `pytorch-gpu` above to enforce a GPU version of `pytorch`.
-
+- Windows: You may need to enable [long path lengths](https://learn.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation?tabs=powershell#application-manifest-updates-to-declare-long-path-capability) if you get an error when creating the environment.
 ## Working with the environment:
 - Activating the environment you just created: `conda activate rvss`
 - Deactivating: `conda deactivate rvss`
