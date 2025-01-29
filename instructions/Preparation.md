@@ -27,3 +27,6 @@ Conda is also an environment manager (like `virtualenv`). Therefore, if an envir
 - Activating the environment you just created: `conda activate rvss`
 - Deactivating: `conda deactivate rvss`
 - Deleting an environment: `conda remove --name FAILED_ENVIRONMENT --all`
+
+# Use Visual Studio Code for code development
+We strongly recommend downloading visual studio code to use as your code editor during the workshop. You can download VS Code [here]( https://code.visualstudio.com/).
