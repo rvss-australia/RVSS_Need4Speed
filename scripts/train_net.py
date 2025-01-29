@@ -23,7 +23,7 @@ script_path = os.path.dirname(os.path.realpath(__file__))
 train_ds = SteerDataSet(os.path.join(script_path, '..', 'data_dimity', 'train'), '.jpg', transform)
 print("The train dataset contains %d images " % len(train_ds))
 
-trainloader = DataLoader(train_ds,batch_size=batch_size,shuffle=True)
+trainloader = DataLoader(train_ds,batch_size=8,shuffle=True)
 all_y = []
 for S in trainloader:
     im, y = S    
