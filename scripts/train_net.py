@@ -40,7 +40,7 @@ plt.ylabel('Counts')
 plt.xticks(all_lbls)
 plt.show()
 
-example_ims, example_lbls = next(iter(trainloader)))
+example_ims, example_lbls = next(iter(trainloader))
 # show images
 imshow(torchvision.utils.make_grid(example_ims))
 # print labels
