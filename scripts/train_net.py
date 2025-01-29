@@ -32,7 +32,7 @@ for S in trainloader:
     all_y += y.tolist()
 
 print(f'Input shape: {im.shape}')
-print('Outputs and their counts:')
+
 all_lbls, all_counts = np.unique(all_y, return_counts = True)
 plt.bar(all_lbls, all_counts, width = 0.05)
 plt.xlabel('Labels')
@@ -41,7 +41,7 @@ plt.xticks(all_lbls)
 plt.show()
 
 example_ims, example_lbls = next(iter(trainloader))
-# show images
-imshow(torchvision.utils.make_grid(example_ims))
-# print labels
+# show images and print labels
 print(' '.join(f'{example_lbls[j]}' for j in range(len(example_lbls))))
+imshow(torchvision.utils.make_grid(example_ims))
+
