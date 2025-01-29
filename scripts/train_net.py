@@ -41,6 +41,6 @@ plt.xticks(all_lbls)
 plt.show()
 
 # show images
-imshow(torchvision.utils.make_grid(next(iter(trainloader)))
+imshow(torchvision.utils.make_grid(next(iter(trainloader))))
 # print labels
 print(' '.join(f'{y[j]}' for j in range(len(y))))
