@@ -33,8 +33,8 @@ for S in trainloader:
 
 print(f'Input shape: {im.shape}')
 print('Outputs and their counts:')
-all_lbls, all_counts = np.unique(all_y, return_counts = True, width = 0.5)
-plt.bar(all_lbls, all_counts)
+all_lbls, all_counts = np.unique(all_y, return_counts = True)
+plt.bar(all_lbls, all_counts, width = 0.05)
 plt.xlabel('Labels')
 plt.ylabel('Counts')
 plt.xticks(all_lbls)
