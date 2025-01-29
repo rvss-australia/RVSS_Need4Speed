@@ -20,7 +20,7 @@ def imshow(img):
 #### Setup the training dataset
 script_path = os.path.dirname(os.path.realpath(__file__))
 
-train_ds = SteerDataSet(os.path.join(script_path, '..', 'data_dimity', 'train'), '.jpg', transform)
+train_ds = SteerDataSet(os.path.join(script_path, '..', 'data', 'train_starter'), '.jpg', transform)
 print("The train dataset contains %d images " % len(train_ds))
 
 trainloader = DataLoader(train_ds,batch_size=8,shuffle=True)
