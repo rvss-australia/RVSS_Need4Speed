@@ -35,6 +35,6 @@ print('Outputs and their counts:')
 print(np.unique(all_y, return_counts = True))
 
 # show images
-imshow(torchvision.utils.make_grid(images))
+imshow(torchvision.utils.make_grid(im))
 # print labels
 print(' '.join(f'{y[j]}' for j in range(len(y))))
