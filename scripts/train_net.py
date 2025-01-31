@@ -18,7 +18,7 @@ from steerDS import SteerDataSet
 ####     This tutorial is adapted from the PyTorch "Train a Classifier" tutorial                                                   ####
 ####     Please review here if you get stuck: https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html                   ####
 #######################################################################################################################################
-
+torch.manual_seed(0)
 
 #Helper function for visualising images in our dataset
 def imshow(img):
