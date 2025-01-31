@@ -32,7 +32,8 @@ Conda is also an environment manager (like `virtualenv`). Therefore, if an envir
 - If you are on Linux/MacOS, simply type `sh Miniforge3-*.sh` and follow the instructions. On Windows, double click `Miniforge3-Windows-x86_64.exe` and follow the instructions.
 
 # Setup an RVSS conda environment
-- Linux/MacOS/Windows: Create a new environment called `rvss` with all required packages: `mamba create -n rvss numpy scipy pytorch scikit-learn ipython scikit-image matplotlib tqdm roboticstoolbox-python git ipykernel mediapy py-opencv seaborn gym jupyter spatialmath-python machinevision-toolbox-python ipywidgets plotly torchvision conda-pack tensorboardx pynput click -c conda-forge --override-channels`.
+- Linux/MacOS: Create a new environment called `rvss` with all required packages: `mamba create -n rvss numpy scipy pytorch scikit-learn ipython scikit-image matplotlib tqdm roboticstoolbox-python git ipykernel mediapy py-opencv seaborn gym jupyter spatialmath-python machinevision-toolbox-python ipywidgets plotly torchvision conda-pack tensorboardx pynput click -c conda-forge --override-channels`.
+- Windows: Create a new environment called `rvss` with all required packages: `mamba create -n rvss numpy scipy pytorch pytorch-cuda scikit-learn ipython scikit-image matplotlib tqdm roboticstoolbox-python git ipykernel mediapy py-opencv seaborn gym jupyter spatialmath-python machinevision-toolbox-python ipywidgets plotly torchvision conda-pack tensorboardx pynput click -c pytorch -c conda-forge -c nvidia`. 
 - Linux/Windows with GPU (optional as this should happen automatically): Replace `pytorch` with `pytorch-gpu` above to enforce a GPU version of `pytorch`.
 - Windows: You may need to enable [long path lengths](https://learn.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation?tabs=powershell#application-manifest-updates-to-declare-long-path-capability) if you get an error when creating the environment.
 ## Working with the environment:
