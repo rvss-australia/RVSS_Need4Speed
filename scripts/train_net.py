@@ -109,7 +109,8 @@ class Net(nn.Module):
 
         self.pool = nn.MaxPool2d(2, 2)
 
-        self.fc1 = nn.Linear(1344, 5)
+        self.fc1 = nn.Linear(1344, 256)
+        self.fc2 = nn.Linear(256, 5)
 
         self.relu = nn.ReLU()
 
@@ -122,6 +123,8 @@ class Net(nn.Module):
         
         #linear layer for classification
         x = self.fc1(x)
+        x = self.relu(x)
+        x = self.fc2(x)
        
         return x
     
@@ -141,10 +144,14 @@ optimizer = optim.SGD(net.parameters(), lr=0.001, momentum=0.9)
 #######################################################################################################################################
 ####     TRAINING LOOP                                                                                                             ####
 #######################################################################################################################################
-
+losses = {'train': [], 'val': []}
+accs = {'train': [], 'val': []}
+best_acc = 0
 for epoch in range(10):  # loop over the dataset multiple times
 
     epoch_loss = 0.0
+    correct = 0
+    total = 0
     for i, data in enumerate(trainloader, 0):
         # get the inputs; data is a list of [inputs, labels]
         inputs, labels = data
@@ -161,15 +168,66 @@ for epoch in range(10):  # loop over the dataset multiple times
         # print statistics
         epoch_loss += loss.item()
 
+        _, predicted = torch.max(outputs, 1)
+        total += labels.size(0)
+        correct += (predicted == labels).sum().item()
+
     print(f'Epoch {epoch + 1} loss: {epoch_loss / len(trainloader)}')
+    losses['train'] += [epoch_loss / len(trainloader)]
+    accs['train'] += [100.*correct/total]
+ 
+    # prepare to count predictions for each class
+    correct_pred = {classname: 0 for classname in val_ds.class_labels}
+    total_pred = {classname: 0 for classname in val_ds.class_labels}
+
+    # again no gradients needed
+    val_loss = 0
+    with torch.no_grad():
+        for data in valloader:
+            images, labels = data
+            outputs = net(images)
+            _, predictions = torch.max(outputs, 1)
+            loss = criterion(outputs, labels)
+
+            val_loss += loss.item()
+            # collect the correct predictions for each class
+            for label, prediction in zip(labels, predictions):
+                if label == prediction:
+                    correct_pred[val_ds.class_labels[label.item()]] += 1
+                total_pred[val_ds.class_labels[label.item()]] += 1
+
+    # print accuracy for each class
+    class_accs = []
+    for classname, correct_count in correct_pred.items():
+        accuracy = 100 * float(correct_count) / total_pred[classname]
+        class_accs += [accuracy]
+
+    accs['val'] += [np.mean(class_accs)]
+    losses['val'] += [val_loss/len(valloader)]
+
+    if np.mean(class_accs) > best_acc:
+        torch.save(net.state_dict(), 'steer_net.pth')
+        best_acc = np.mean(class_accs)
 
 print('Finished Training')
-torch.save(net.state_dict(), 'steer_net.pth')
+
+plt.plot(losses['train'], label = 'Training')
+plt.plot(losses['val'], label = 'Validation')
+plt.xlabel('Epoch')
+plt.ylabel('Loss')
+plt.show()
+
+plt.plot(accs['train'], label = 'Training')
+plt.plot(accs['val'], label = 'Validation')
+plt.xlabel('Epoch')
+plt.ylabel('Accuracy')
+plt.show()
 
 
 #######################################################################################################################################
 ####     PERFORMANCE EVALUATION                                                                                                    ####
 #######################################################################################################################################
+net.load_state_dict(torch.load('steer_net.pth'))
 
 correct = 0
 total = 0
@@ -192,16 +250,28 @@ correct_pred = {classname: 0 for classname in val_ds.class_labels}
 total_pred = {classname: 0 for classname in val_ds.class_labels}
 
 # again no gradients needed
+actual = []
+predicted = []
 with torch.no_grad():
     for data in valloader:
         images, labels = data
         outputs = net(images)
         _, predictions = torch.max(outputs, 1)
+
+        actual += labels.tolist()
+        predicted += predictions.tolist()
+
         # collect the correct predictions for each class
         for label, prediction in zip(labels, predictions):
             if label == prediction:
-                correct_pred[val_ds.class_labels[label]] += 1
-            total_pred[val_ds.class_labels[label]] += 1
+                correct_pred[val_ds.class_labels[label.item()]] += 1
+            total_pred[val_ds.class_labels[label.item()]] += 1
+
+cm = metrics.confusion_matrix(actual, predicted, normalize = 'true')
+disp = metrics.ConfusionMatrixDisplay(confusion_matrix=cm,
+                              display_labels=val_ds.class_labels)
+disp.plot()
+plt.show()
 
 # print accuracy for each class
 for classname, correct_count in correct_pred.items():
