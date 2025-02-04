@@ -32,7 +32,7 @@ class SteerDataSet(Dataset):
         else:
             img = self.transform(img)   
         
-        steering = f.split("/")[-1].split(self.img_ext)[0][6:]
+        steering = path.split(f)[-1].split(self.img_ext)[0][6:]
         steering = float(steering)       
 
         if steering <= -0.5:
