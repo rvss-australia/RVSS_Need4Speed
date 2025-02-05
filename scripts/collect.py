@@ -4,7 +4,7 @@ import sys
 import os
 import cv2
 import numpy as np
-from pynput import keyboard
+import matplotlib.pyplot as plt
 import argparse
 
 script_path = os.path.dirname(os.path.realpath(__file__))
@@ -23,11 +23,41 @@ if not os.path.exists(script_path+"/../data/"+args.folder):
     exit()
 
 bot = PiBot(ip=args.ip)
-# stop the robot
-
 bot.setVelocity(0, 0)
 
-#countdown before beginning
+# Initialize variables
+angle = 0
+is_stopped = False
+im_number = args.im_num
+continue_running = True
+
+# Create matplotlib figure before countdown
+plt.ion()  # Turn on interactive mode
+fig, ax = plt.subplots(figsize=(8,6))
+ax.set_title('Press arrow keys to control\nSpace to toggle stop/start')
+plt.axis('off')
+fig.canvas.manager.window.raise_()  # Bring window to front
+
+def on_key(event):
+    global angle, is_stopped
+    
+    if event.key == 'up':
+        angle = 0
+    elif event.key == 'down':
+        angle = 0
+    elif event.key == 'right':
+        angle += 0.1
+    elif event.key == 'left':
+        angle -= 0.1
+    elif event.key == ' ':
+        is_stopped = not is_stopped  # Toggle stop state
+        if is_stopped:
+            bot.setVelocity(0, 0)
+
+# Connect event handler before countdown
+fig.canvas.mpl_connect('key_press_event', on_key)
+
+# countdown before beginning
 print("Get ready...")
 time.sleep(1)
 print("3")
@@ -38,65 +68,36 @@ print("1")
 time.sleep(1)
 print("GO!")
 
-
-# Initialize variables
-angle = 0
-im_number = args.im_num
-continue_running = True
-
-def on_press(key):
-    global angle, continue_running
-    try:
-        if key == keyboard.Key.up:
-            angle = 0
-            print("straight")
-        elif key == keyboard.Key.down:
-            angle = 0
-        elif key == keyboard.Key.right:
-            print("right")
-            angle += 0.1
-        elif key == keyboard.Key.left:
-            print("left")
-            angle -= 0.1
-        elif key == keyboard.Key.space:
-            print("stop")
-            bot.setVelocity(0, 0)
-            continue_running = False
-            # return False  # Stop listener
-
-    except Exception as e:
-        print(f"An error occurred: {e}")
-        bot.setVelocity(0, 0)
-
-# Start the listener
-listener = keyboard.Listener(on_press=on_press)
-listener.start()
-
 try:
     while continue_running:
         # Get an image from the robot
         img = bot.getImage()
         
+        # Display the image in matplotlib window
+        ax.clear()
+        ax.imshow(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
+        ax.set_title(f'Angle: {angle:.2f}')
+        plt.axis('off')
+        plt.draw()
+        plt.pause(0.01)  # Small pause to update the plot
+        
         angle = np.clip(angle, -0.5, 0.5)
         Kd = 15  # Base wheel speeds
         Ka = 15  # Turn speed
-        left  = int(Kd + Ka*angle)
-        right = int(Kd - Ka*angle)
         
-        bot.setVelocity(left, right)
+        if not is_stopped:
+            left  = int(Kd + Ka*angle)
+            right = int(Kd - Ka*angle)
+            bot.setVelocity(left, right)
 
         cv2.imwrite(script_path+"/../data/"+args.folder+"/"+str(im_number).zfill(6)+'%.2f'%angle+".jpg", img) 
         im_number += 1
 
-        time.sleep(0.1)  # Small delay to reduce CPU usage
-
-    # Clean up
-    bot.setVelocity(0, 0)
-    listener.stop()
-    print("Script ended")
-
-
 except KeyboardInterrupt:    
     bot.setVelocity(0, 0)
-    listener.stop()
+    plt.close()
+
+finally:
+    bot.setVelocity(0, 0)
+    plt.close()
 
