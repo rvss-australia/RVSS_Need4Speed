@@ -4,6 +4,24 @@
 
 The material provided here was developed for the workshop hosted at the [Robotic Vision Summer School](https://www.rvss.org.au/).
 
+## Challenge Day Testing Order
+1. 'Hello World'
+2. 'SLAM Troopers'
+3. 'Sunday Drivers'
+4. 'The Penguin Eaters'
+5. 'Kangaroos'
+6. 'Explorers'
+7. '2 Fast 2 Furious'
+8. 'MJR'
+9. 'FSD V13'
+10. 'Fibre Optics'
+11. 'Skipper'
+12. 'Corolla'
+13. 'DeepSleep'
+14. 'Fluffy'
+15. 'Captain Dragonfly'
+16. 'Not so deep seek'
+
 ## Table of Contents
   1. [Setup your Laptop](instructions/Preparation.md)
   2. [Connect to the Robot](instructions/ControlRobot.md)
