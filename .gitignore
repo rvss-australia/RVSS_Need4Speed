@@ -3,3 +3,5 @@
 *.pyc
 *.pt
 *.ipynb
+# pixi environments
+.pixi
