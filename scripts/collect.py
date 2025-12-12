@@ -5,6 +5,7 @@ import os
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib
 import argparse
 
 script_path = os.path.dirname(os.path.realpath(__file__))
@@ -16,6 +17,7 @@ parser.add_argument('--ip', type=str, default='localhost', help='IP address of P
 parser.add_argument('--im_num', type = int, default = 0)
 parser.add_argument('--folder', type = str, default = 'train')
 args = parser.parse_args()
+
 
 if not os.path.exists(script_path+"/../data/"+args.folder):
     data_path = script_path.replace('scripts', 'data')
@@ -36,10 +38,15 @@ plt.ion()  # Turn on interactive mode
 fig, ax = plt.subplots(figsize=(8,6))
 ax.set_title('Press arrow keys to control\nSpace to toggle stop/start')
 plt.axis('off')
-fig.canvas.manager.window.raise_()  # Bring window to front
+if matplotlib.get_backend() == "macosx":
+    fig.canvas.manager.show()
+else:
+    fig.canvas.manager.window.raise_()  # Bring window to front
+
+plt.waitforbuttonpress()
 
 def on_key(event):
-    global angle, is_stopped
+    global angle, is_stopped, continue_running
     
     if event.key == 'up':
         angle = 0
@@ -53,6 +60,9 @@ def on_key(event):
         is_stopped = not is_stopped  # Toggle stop state
         if is_stopped:
             bot.setVelocity(0, 0)
+    elif event.key == 'q':
+        bot.setVelocity(0, 0)
+        continue_running = False
 
 # Connect event handler before countdown
 fig.canvas.mpl_connect('key_press_event', on_key)
