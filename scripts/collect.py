@@ -36,7 +36,7 @@ continue_running = True
 # Create matplotlib figure before countdown
 plt.ion()  # Turn on interactive mode
 fig, ax = plt.subplots(figsize=(8,6))
-ax.set_title('Press arrow keys to control\nSpace to toggle stop/start')
+ax.set_title('Click Here to start')
 plt.axis('off')
 if matplotlib.get_backend() == "macosx":
     fig.canvas.manager.show()
@@ -47,7 +47,7 @@ plt.waitforbuttonpress()
 
 def on_key(event):
     global angle, is_stopped, continue_running
-    
+
     if event.key == 'up':
         angle = 0
     elif event.key == 'down':
@@ -64,46 +64,57 @@ def on_key(event):
         bot.setVelocity(0, 0)
         continue_running = False
 
+def update_title(mesage):
+    ax.set_title(mesage)
+    plt.axis('off')
+    plt.draw()
+    plt.pause(0.01)
+
+
+
 # Connect event handler before countdown
 fig.canvas.mpl_connect('key_press_event', on_key)
 
 # countdown before beginning
-print("Get ready...")
+update_title('Get Ready!')
 time.sleep(1)
-print("3")
+update_title('3')
 time.sleep(1)
-print("2")
+update_title('2')
 time.sleep(1)
-print("1")
+update_title('1')
 time.sleep(1)
-print("GO!")
+update_title('Go!')
+time.sleep(1)
+
+
+title = "Press arrow keys to control the robot\nSpace to toggle stop/start\nQ to quit"
 
 try:
     while continue_running:
         # Get an image from the robot
         img = bot.getImage()
-        
+
         # Display the image in matplotlib window
         ax.clear()
         ax.imshow(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
-        ax.set_title(f'Angle: {angle:.2f}')
+        ax.set_title(f'{title}\nAngle: {angle:.2f}')
         plt.axis('off')
         plt.draw()
         plt.pause(0.01)  # Small pause to update the plot
-        
+
         angle = np.clip(angle, -0.5, 0.5)
         Kd = 15  # Base wheel speeds
         Ka = 15  # Turn speed
-        
+
         if not is_stopped:
             left  = int(Kd + Ka*angle)
             right = int(Kd - Ka*angle)
             bot.setVelocity(left, right)
+            cv2.imwrite(script_path+"/../data/"+args.folder+"/"+str(im_number).zfill(6)+'%.2f'%angle+".jpg", img)
+            im_number += 1
 
-        cv2.imwrite(script_path+"/../data/"+args.folder+"/"+str(im_number).zfill(6)+'%.2f'%angle+".jpg", img) 
-        im_number += 1
-
-except KeyboardInterrupt:    
+except KeyboardInterrupt:
     bot.setVelocity(0, 0)
     plt.close()
 
