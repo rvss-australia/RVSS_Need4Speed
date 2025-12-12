@@ -5,3 +5,7 @@
 *.ipynb
 # pixi environments
 .pixi
+
+# WSL
+*:Zone.Identifier
+*.DS_Store
