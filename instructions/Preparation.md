@@ -3,7 +3,7 @@
 Please follow each of the steps below before arriving at RVSS:
 - [Use pixi for package management](#use-pixi-for-package-management)
 - [Clone the repository](#clone-the-repository)
-- [Install dependencies](#install-dependencies)
+- [Install workspace](#install-workspace)
 - [Download the starter data](#download-the-starter-data)
 - [Download Visual Studio Code for code development](#download-visual-studio-code-for-code-development)
 
@@ -39,10 +39,10 @@ Before you attend the workshop, you will need a copy of this repository on your 
 
 *If git its not installed in your system you can install it using pixi as `pixi global install git`*
 
-# Install dependencies
+# Install workspace
 Pixi's biggest strength is its ability to create reproducible, powerful, and flexible workspaces. A workspace lives in a directory on your system, and is a collection of Pixi environments that can be used to develop one or many projects in that directory. The dependencies and enviroments are defined in a [manifest file](../pixi.toml).
 
-In order to install the dependencies you need to run the following command in the clonned RVSS_Need4Speed directory. 
+In order to install the dependencies you need to run the following command in the cloned RVSS_Need4Speed directory. 
 
 ```bash
 cd RVSS_Need4Speed # if using the same terminal where the code was cloned
@@ -50,6 +50,11 @@ pixi install -a # Will install all enviroments supported by your computer
 ```
 
 *In Windows you may need to enable [long path lengths](https://learn.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation?tabs=powershell#application-manifest-updates-to-declare-long-path-capability) if you get an error when creating the environment.*
+
+## Working with the environment:
+If you are familiar with conda, you can also activate an environment in pixi by running `pixi shell` or `pixi shell -e cuda` if an nvidia gpu is available.
+
+*In windows you may need to run the command as `powershell -ExecutionPolicy Bypass -c "pixi shell" ` if running scripts are disabled in the system*
 
 ## Check instalation
 
@@ -62,8 +67,6 @@ Navigate to the [huggingface dataset](https://huggingface.co/datasets/dimitym/RV
 You should have a `data` folder that contains a `train_starter` and `val_starter` folder, containing 793 and 436 images respectively.
 
 
-## Working with the environment:
-If you are familiar with conda, you can also activate an environment in pixi by running `pixi shell` or `pixi shell -e cuda` if an nvidia gpu is available.
 
 
 # Download Visual Studio Code for code development
