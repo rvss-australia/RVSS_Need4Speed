@@ -17,7 +17,7 @@ Pixi handles dependencies seamlessly and makes it easy to set up different envir
 ## Guide for setting up pixi
 
 ### Linux/MacOS
-To install pixi you can run the following command in your terminal: 
+To install pixi you can run the following command in your terminal:
 
 ```bash
 curl -fsSL https://pixi.sh/install.sh | sh
@@ -42,11 +42,13 @@ Before you attend the workshop, you will need a copy of this repository on your 
 # Install workspace
 Pixi's biggest strength is its ability to create reproducible, powerful, and flexible workspaces. A workspace lives in a directory on your system, and is a collection of Pixi environments that can be used to develop one or many projects in that directory. The dependencies and enviroments are defined in a [manifest file](../pixi.toml).
 
-In order to install the dependencies you need to run the following command in the cloned RVSS_Need4Speed directory. 
+In order to install the dependencies you need to run the following command in the cloned RVSS_Need4Speed directory.
 
 ```bash
 cd RVSS_Need4Speed # if using the same terminal where the code was cloned
-pixi install -a # Will install all enviroments supported by your computer
+pixi install # Will install default environment in your computer
+
+pixi install -e cuda # Install gpu dependencies
 ```
 
 *In Windows you may need to enable [long path lengths](https://learn.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation?tabs=powershell#application-manifest-updates-to-declare-long-path-capability) if you get an error when creating the environment.*
