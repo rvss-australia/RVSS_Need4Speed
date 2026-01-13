@@ -80,3 +80,8 @@ Finally after the installation is done, you can check your install by running `p
 
 # Download Visual Studio Code for code development
 We strongly recommend downloading Visual Studio Code to use as your code editor during the workshop. You can download VS Code [here]( https://code.visualstudio.com/). Please install at least the following two extensions: Python and Remote - SSH.
+
+
+If using vscode remember to select the python interpreter as the one inside the `.pixi` local folder 
+
+![env](../pics/vscode.png)
