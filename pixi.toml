@@ -1,5 +1,5 @@
 [workspace]
-authors = [""]
+authors = ["Dimity Miller", "Tobias Fischer", "Feras Dayoub", "Serena Mou", "Nicolas Marticorena"]
 channels = ["conda-forge"]
 description = "RVSS: Need 4 Speed, Practical Workshop hosted at the Robotic Vision Summer School."
 name = "RVSS_Need4Speed"
