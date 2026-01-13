@@ -90,6 +90,32 @@ def check_cuda() -> Tuple[bool, str, Optional[Dict[str, Any]]]:
     except Exception as e:
         return False, f"CUDA check failed: {e}", None
 
+def check_dataset() -> Tuple[bool, str, Optional[str]]:
+    """
+    Returns:
+        ok: True if dataset is found, False otherwise
+        message: one-line summary
+        info: extra info
+    """
+    import os
+    retry_message = "Please run pixi run get_dataset"
+
+    train_path = os.path.join("data", "train_starter")
+    val_path = os.path.join("data", "val_starter")
+
+    train_size = os.listdir(train_path) if os.path.exists(train_path) else []
+    val_size = os.listdir(val_path) if os.path.exists(val_path) else []
+
+    if len(train_size) == 0 or len(val_size) == 0:
+        return False, "Dataset not found", retry_message
+    elif len(train_size) != 793 or len(val_size) != 436:
+        return False, "Dataset partially downloaded", retry_message
+    else:
+        return True, "Dataset found and complete", None
+
+
+
+
 def main():
     print("=" * 60)
     print("Environment Import Check")
@@ -140,6 +166,18 @@ def main():
         print_coloured("Some imports failed. Check your environment.", bcolors.WARNING)
 
     print("=" * 60)
+
+    print("Dataset Check")
+    print("=" * 60)
+    data_ok, data_msg, data_info = check_dataset()
+    if data_ok:
+        print_coloured(f"{data_msg}", bcolors.OKGREEN)
+    else:
+        print_coloured(f"{data_msg}", bcolors.FAIL)
+        if data_info:
+            print_coloured(f"   ↳ {data_info}", bcolors.FAIL)
+    print("=" * 60)
+
 
 
 if __name__ == "__main__":
