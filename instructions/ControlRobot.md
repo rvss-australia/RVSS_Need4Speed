@@ -19,7 +19,7 @@ You can end the script by typing `ctrl+c` into the terminal.
 2. On the front of the robot, there is a little green light, next to a red light. After you press the 'SDN' button, wait for the message 'Turn Raspberry Pi off safely' to show on the OLED screen **AND** for this green light to be off. Note: after pressing the button, the LED will flash, then turn solid, then finally turn off after this pattern. It is now safe to turn off the robot with the side switch.
 
 ## FAQ
-**My PenguinPi-robot folder is empy?**
+**My PenguinPi-robot folder is empty?**
 
 This can occur is the sub-module (PenguinPi-robot) is not correctly initialised. You can do this in two ways:
 1. ```git clone --recurse-submodules https://github.com/rvss-australia/RVSS_Need4Speed.git```
