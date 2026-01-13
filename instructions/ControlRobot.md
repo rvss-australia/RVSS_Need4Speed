@@ -2,7 +2,8 @@
 1. Turn the robot on with the switch on it's side.
 2. Your robot will then connect to the wifi, and advertise a wlan ip address on its OLED screen -- take note of this number (xxx.xxx.xx.x).
 
-Make sure you are connected to RVSS_Starlink, with password RVSS2025 before you attempt to control the robot.
+
+Make sure you are connected to RVSS_Starlink, with password RVSS2026 before you attempt to control the robot.
 ## Check the connection!
 Navigate to the RVSS repository on your local machine and get ready to test the camera and motors on the PiBot. You will run a script that will check that the camera can take an image, and will turn on each motor, one at a time. Make sure you're holding your robot so it doesn't drive off a table. Make sure to enter the correct wlan ip address.
 
