@@ -18,6 +18,9 @@ pytorch-gpu = ">=2.9.1,<3"
 test = {cmd = "python test_install.py"}
 download_data = {cmd = "hf download dimitym/RVSS_Need4Speed_starter data.zip --repo-type dataset --local-dir ."}
 get_dataset = {cmd = "7za x ./data.zip", depends-on = ["download_data"]}
+set_hotspot = {cmd = "ssh -t pi@{{ robot_ip }} 'sudo nmcli c delete RVSS_Starlink'" , args = ["robot_ip"]}
+set_wifi = {cmd = "ssh -t pi@{{ robot_ip}} 'sudo bash ~/PenguinPi-robot/software/scripts/update_networking_script.sh '",args = [{ arg = "robot_ip", default ="10.42.0.1"}]}
+show_connections = {cmd = "ssh -t pi@{{ robot_ip }} 'sudo nmcli c show'", args = ["robot_ip"]}
 
 [dependencies]
 numpy = ">=1.26.4,<2"
