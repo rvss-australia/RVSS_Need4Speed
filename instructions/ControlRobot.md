@@ -1,9 +1,31 @@
 ## Connect your robot to the wifi:
-1. Turn the robot on with the switch on it's side.
-2. Your robot will then connect to the wifi, and advertise a wlan ip address on its OLED screen -- take note of this number (xxx.xxx.xx.x).
 
+*Before attempting to control the robot, make sure your computer is connected to RVSS_Starlink using the password RVSS2026.*
 
-Make sure you are connected to RVSS_Starlink, with password RVSS2026 before you attempt to control the robot.
+The robots support two external network modes:
+
+- Primary mode: The robot attempts to connect to RVSS_Starlink.
+
+- Fallback mode: If RVSS_Starlink is out of range, the robot creates its own local Wi-Fi network named
+PenguinPi:xx.xx.xx, where the suffix corresponds to the last 6 characters of the robot’s WMAC, shown on the OLED screen.
+
+This order can be changed please refer to the [FAQ](#faq) section.
+
+### Steps
+
+- Turn the robot on using the power switch on its side.
+
+- The robot will attempt to connect to Wi-Fi and display its WLAN IP address on the OLED screen.
+Take note of this address (e.g. xxx.xxx.xx.x).
+
+- If the displayed IP address is 10.42.0.1, the robot is operating in hotspot mode.
+In this mode, you will not have internet access while connected to the robot.
+
+    - Power-cycle the robot (see How to turn off the robot
+) and try again, or
+
+    - Connect directly to the robot’s local Wi-Fi network (PenguinPi:xx.xx.xx) using the password PenguinPi.
+
 ## Check the connection!
 Navigate to the RVSS repository on your local machine and get ready to test the camera and motors on the PiBot. You will run a script that will check that the camera can take an image, and will turn on each motor, one at a time. Make sure you're holding your robot so it doesn't drive off a table. Make sure to enter the correct wlan ip address.
 
@@ -38,3 +60,10 @@ You should not need to do this at any point. Please check with one of the worksh
 2. In a terminal window, SSH to the robot with the command below. Note: the -X command is important, please make sure you use this!
 ```ssh -X pi@xxx.xxx.xx.x```
 3. When prompted, enter password: PenguinPi 
+
+**Change default connection**
+
+In some cases the robot connection migth be laggy and unstable while using the `RVSS_starlink` connection. you can modify the default behaviour of your robot by running the following:
+
+- `pixi run set_hotspot xxx.xxx.xx.x` to always set up the hotspot connection.
+- `pixi run set_wifi` to recover the default connection.
