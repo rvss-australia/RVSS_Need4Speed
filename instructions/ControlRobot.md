@@ -1,39 +1,32 @@
 ## Connect your robot to the wifi:
 
-*Before attempting to control the robot, make sure your computer is connected to RVSS_Starlink using the password RVSS2026.*
+*Before attempting to control the robot, make sure your computer is connected to the `RVSS_Starlink` network using the password "RVSS2026".*
 
 The robots support two external network modes:
+1. **Primary mode:** The robot attempts to connect to RVSS_Starlink.
+2. **Fallback mode:** If `RVSS_Starlink` is out of range, the robot creates its own local Wi-Fi network named
+`PenguinPi:xx.xx.xx`, where the suffix corresponds to the last 6 characters of the robot’s WMAC, which is shown on the OLED screen.
 
-- Primary mode: The robot attempts to connect to RVSS_Starlink.
-
-- Fallback mode: If RVSS_Starlink is out of range, the robot creates its own local Wi-Fi network named
-PenguinPi:xx.xx.xx, where the suffix corresponds to the last 6 characters of the robot’s WMAC, shown on the OLED screen.
-
-This order can be changed please refer to the [FAQ](#faq) section.
+This order can be changed; please refer to the [FAQ](#faq) section.
 
 ### Steps
 
-- Turn the robot on using the power switch on its side.
-
-- The robot will attempt to connect to Wi-Fi and display its WLAN IP address on the OLED screen.
+1. Turn the robot on using the power switch on its side.
+2. The robot will attempt to connect to Wi-Fi and display its WLAN IP address on the OLED screen.
 Take note of this address (e.g. xxx.xxx.xx.x).
-
-- If the displayed IP address is 10.42.0.1, the robot is operating in hotspot mode.
-In this mode, you will not have internet access while connected to the robot.
-
-    - Power-cycle the robot (see How to turn off the robot
-) and try again, or
-
+3. If the displayed IP address is 10.42.0.1, the robot is operating in hotspot mode.
+In this mode, you will not have internet access while connected to the robot. You can then either:
+    - Power-cycle the robot (see How to turn off the robot) and try again, or
     - Connect directly to the robot’s local Wi-Fi network (PenguinPi:xx.xx.xx) using the password PenguinPi.
 
 ## Check the connection!
-Navigate to the RVSS repository on your local machine and get ready to test the camera and motors on the PiBot. You will run a script that will check that the camera can take an image, and will turn on each motor, one at a time. Make sure you're holding your robot so it doesn't drive off a table. Make sure to enter the correct wlan ip address.
+Navigate to the `RVSS` repository on your local machine and get ready to test the camera and motors on the PiBot. You will run a script that will check that the camera can take an image, and will turn on each motor, one at a time. Make sure you're holding your robot so it doesn't drive off a table. Make sure to enter the correct wlan IP address.
 
-``` python PenguinPi-robot/software/python/client/test_camera_motors.py --ip xxx.xxx.xx.x```
+``` python PenguinPi-robot/software/python/client/test_camera_motors.py --ip xxx.xxx.xxx.xxx```
 
 If your robot is working, both the wheels should spin, a non-zero image shape should print in the terminal, and you should see a window with a continuous feed from the robot camera. If this does not happen, let one of the workshop organisers know as your robot may be faulty.
 
-You can end the script by typing `ctrl+c` into the terminal.
+You can end the script by `ctrl+c` in the terminal.
 
 **Note: if you want to get some initial insight into how control the robot camera and motors, read through this script to see how it works.**
 
@@ -45,9 +38,9 @@ You can end the script by typing `ctrl+c` into the terminal.
 **My PenguinPi-robot folder is empty?**
 
 This can occur is the sub-module (PenguinPi-robot) is not correctly initialised. You can do this in two ways:
-1. ```git clone --recurse-submodules https://github.com/rvss-australia/RVSS_Need4Speed.git```
+1. ```git clone --recursive https://github.com/rvss-australia/RVSS_Need4Speed.git```
 
-or if you have already cloned the repo without the `--recurse-submodules` argument:
+or if you have already cloned the repo without the ` --recursive` argument:
 
 2. ```git submodule init``` followed by ```git submodule update```
 
@@ -63,7 +56,7 @@ You should not need to do this at any point. Please check with one of the worksh
 
 **Change default connection**
 
-In some cases the robot connection migth be laggy and unstable while using the `RVSS_starlink` connection. you can modify the default behaviour of your robot by running the following:
+In some cases the robot connection migth be laggy and unstable while using the `RVSS_Starlink` connection. you can modify the default behaviour of your robot by running the following:
 
 - `pixi run set_hotspot xxx.xxx.xx.x` to always set up the hotspot connection.
-- `pixi run set_wifi` to recover the default connection.
+- `pixi run set_wifi` to recover the default `RVSS_Starlink` connection.
