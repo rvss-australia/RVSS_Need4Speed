@@ -33,7 +33,7 @@ Rewards include:
 - City's Safest Driver: You didn't get any penalties! Your robot is the city's safest driver. **-5 seconds** will be removed from your time.
 
 ## You will be provided with:
-A range of sample track tiles, a stick-on stop sign, a robot, this repository, and occasional guidance from Tobi, Dimity and Jack (the workshop organisers). The rest is up to you!
+A range of sample track tiles, a stick-on stop sign, a robot, this repository, and occasional guidance from Tobi, Scarlett, Nicolas, Therese and the other workshop organisers. The rest is up to you!
 
 ## On the Day
 The order will be randomly chosen and shared here on the evening before the challenge. 
