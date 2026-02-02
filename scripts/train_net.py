@@ -12,6 +12,16 @@ import sklearn.metrics as metrics
 
 import matplotlib.pyplot as plt
 
+if torch.backends.mps.is_available():
+    mps_device = torch.device("mps")
+    x = torch.ones(1, device=mps_device)
+    print(f"MPS device found: {x}")
+    print("PyTorch is using the GPU on your Mac.")
+else:
+    print("MPS device not found or not available.")
+    print("PyTorch is running on CPU.")
+
+
 from steerDS import SteerDataSet
 
 #######################################################################################################################################
