@@ -61,7 +61,8 @@ def on_press(key):
         elif key == keyboard.Key.space:
             print("stop")
             bot.setVelocity(0, 0)
-            continue_running = False
+            time.sleep(1)  
+            # continue_running = False
             # return False  # Stop listener
 
     except Exception as e:

@@ -225,12 +225,14 @@ plt.plot(losses['train'], label = 'Training')
 plt.plot(losses['val'], label = 'Validation')
 plt.xlabel('Epoch')
 plt.ylabel('Loss')
+plt.legend()
 plt.show()
 
 plt.plot(accs['train'], label = 'Training')
 plt.plot(accs['val'], label = 'Validation')
 plt.xlabel('Epoch')
 plt.ylabel('Accuracy')
+plt.legend()
 plt.show()
 
 
