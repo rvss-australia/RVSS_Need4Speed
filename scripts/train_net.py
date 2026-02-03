@@ -114,27 +114,41 @@ plt.show()
 class Net(nn.Module):
     def __init__(self):
         super().__init__()
-        self.conv1 = nn.Conv2d(3, 6, 5)
-        self.conv2 = nn.Conv2d(6, 16, 5)
+        self.features = nn.Sequential(
+            nn.Conv2d(3, 24, 5, stride=2),
+            nn.ReLU(),
+            nn.Conv2d(24, 36, 5, stride=2),
+            nn.ReLU(),
+            nn.Conv2d(36, 48, 3, stride=1),
+            nn.ReLU(),
+            nn.Conv2d(48, 64, 3, stride=1),
+            nn.ReLU(),
+            nn.Conv2d(64, 64, 3, stride=1),
+            nn.ReLU(),
+        )
 
-        self.pool = nn.MaxPool2d(2, 2)
+        flatten_size = self._get_flatten_size()
+        self.classifier = nn.Sequential(
+            nn.Linear(flatten_size, 100),
+            nn.ReLU(),
+            nn.Linear(100, 50),
+            nn.ReLU(),
+            nn.Linear(50, 10),
+            nn.ReLU(),
+            nn.Linear(10, 5),
+        )
 
-        self.fc1 = nn.Linear(1344, 256)
-        self.fc2 = nn.Linear(256, 5)
-
-        self.relu = nn.ReLU()
+    def _get_flatten_size(self):
+        with torch.no_grad():
+            x = torch.zeros(1, 3, 40, 60)
+            x = self.features(x)
+            return x.view(1, -1).shape[1]
 
 
     def forward(self, x):
-        #extract features with convolutional layers
-        x = self.pool(self.relu(self.conv1(x)))
-        x = self.pool(self.relu(self.conv2(x)))
+        x = self.features(x)
         x = torch.flatten(x, 1) # flatten all dimensions except batch
-        
-        #linear layer for classification
-        x = self.fc1(x)
-        x = self.relu(x)
-        x = self.fc2(x)
+        x = self.classifier(x)
        
         return x
     
