@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from steer_labels import LABEL_TO_ANGLE
 class Controller:
     def __init__(
         self,
@@ -16,14 +17,7 @@ class Controller:
         self.max_wheel_speed = max_wheel_speed
         self.angle = 0.0
         if label_to_angle is None:
-            # Labels: [sharp left, left, straight, right, sharp right]
-            self.label_to_angle = {
-                0: -1.0,
-                1: -0.5,
-                2: 0.0,
-                3: 0.5,
-                4: 1.0,
-            }
+            self.label_to_angle = LABEL_TO_ANGLE
         else:
             self.label_to_angle = label_to_angle
 
