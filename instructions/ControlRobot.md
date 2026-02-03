@@ -58,5 +58,7 @@ You should not need to do this at any point. Please check with one of the worksh
 
 In some cases the robot connection migth be laggy and unstable while using the `RVSS_Starlink` connection. you can modify the default behaviour of your robot by running the following:
 
-- `pixi run set_hotspot xxx.xxx.xx.x` to always set up the hotspot connection.
+- Use the command `pixi run set_hotspot ROBOT_IP`. Replace ROBOT_IP with the robot’s WLAN IP address (e.g., 192.168.1.10) to ensure the command is run in the robot.
+    - you will be asked to add the host so please enter `yes` in the console.
+    - When prompted, enter password: `PenguinPi`
 - `pixi run set_wifi` to recover the default `RVSS_Starlink` connection.
